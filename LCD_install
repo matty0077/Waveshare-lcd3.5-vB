@@ -1,0 +1,49 @@
+sudo raspi-config
+
+expand filesystem
+
+tar xvf LCD-show-*.tar.gz
+cd LCD-show/
+
+chmod +x LCD35-show
+./LCD35-show
+
+Note: this LCD won't work after apt-get upgrade, in such cases, please edit the config.txt file in the SD card and remove this statement: dtoverlay=ads7846
+
+toggle
+cd LCD-show/
+./LCD-hdmi
+//
+./LCD35-show
+
+
+cd LCD-show/
+./LCD35-show 0
+90 degree rotation
+cd LCD-show/
+./LCD35-show 90
+180 degree rotation
+cd LCD-show/
+./LCD35-show 180
+270 degree rotation
+cd LCD-show/
+./LCD35-cd LCD-show/
+./LCD35-show 0
+90 degree rotation
+cd LCD-show/
+./LCD35-show 90
+180 degree rotation
+cd LCD-show/
+./LCD35-show 180
+270 degree rotation
+cd LCD-show/
+./LCD35-show 270show 270
+
+
+This LCD can be calibrated using a program called xinput_calibrator which is pre-installed on the CD image. However, it was not pre-installed on original Raspbian OS. So in this case, you should get and install the program manually with
+
+sudo apt-get install -y xinput-calibrator
+Enter the following commands for touch screen calibration:
+
+sudo DISPLAY=:0.0 xinput_calibrator
+or select Menu -> Preferences -> Calibrate Touchscreen.
